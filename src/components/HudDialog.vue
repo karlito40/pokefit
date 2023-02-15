@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { createTimer } from '../libs/timer';
 
 const DIALOG = 'dialog'
 const CHALLENGE = 'challenge' 
@@ -55,20 +56,20 @@ const messages = [
 
 const currentMessage = ref(null)
 
-onMounted(scrollMessage)
+onMounted(scrollMessages)
 
 function leave () {
-  clearTimeout(timeoutId)
+  timer?.kill();
   currentMessage.value = leaveMessage;
 }
 
-let timeoutId
-function scrollMessage () {
+let timer
+function scrollMessages () {
   if (!messages.length) return
 
   currentMessage.value = messages.shift()
-  clearTimeout(timeoutId)
-  timeoutId = setTimeout(scrollMessage, currentMessage.value.duration)
+  timer?.kill();
+  timer = createTimer(scrollMessages, currentMessage.value.duration)
 }
 </script>
 
@@ -87,7 +88,7 @@ function scrollMessage () {
       </button>
       <button
         class="btn-next"
-        @click="scrollMessage"  
+        @click="scrollMessages"
       >
         Continuer
       </button>
