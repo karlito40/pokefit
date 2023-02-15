@@ -9,6 +9,7 @@ export default [
   {
     id: "0001",
     name: "Bulbizarre",
+    weight: 15,
     types: [POISON, PLANT],
     challenge: [
       {
@@ -28,12 +29,14 @@ export default [
   {
     id: "0002",
     name: "Herbizarre",
+    weight: 10,
     types: [POISON, PLANT],
     challenge: [],
   },
   {
     id: "0003",
     name: "Florizarre",
+    weight: 5,
     types: [POISON, PLANT],
     challenge: [],
     // TODO

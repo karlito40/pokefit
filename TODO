@@ -3,7 +3,8 @@
 ☐ Animation (pokemon opponent, pokeball capture, fuite..)
 ☐ push notif
 ☐ add vue-i18n
-
+☐ set background from type
+☐ random by weight
 
 <div>
         <button>Accepter</button> <!-- Tortank vous accorde 5 minutes -->

@@ -8,6 +8,8 @@ const props = defineProps({
   },
 })
 
+// TODO: backgroundUrl
+
 const src = ref()
 watchEffect(async () => {
   src.value = (await import(`@/assets/img/monsters/${props.monster.id}.png`)).default
