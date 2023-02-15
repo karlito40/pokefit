@@ -1,0 +1,6 @@
+{
+  "appId": "com.karlilab.pokefit",
+  "appName": "pokefit",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
