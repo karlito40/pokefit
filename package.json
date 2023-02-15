@@ -12,6 +12,7 @@
     "@capacitor/android": "^4.6.3",
     "@capacitor/cli": "^4.6.3",
     "@capacitor/core": "^4.6.3",
+    "lodash-es": "^4.17.21",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },

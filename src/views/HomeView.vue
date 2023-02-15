@@ -1,5 +1,11 @@
 <script setup>
+import { ref } from 'vue'
+import { sample } from 'lodash-es'
 import HudDialog from '../components/HudDialog.vue'
+import PokemonLoader from '../components/PokemonLoader.vue'
+import monsters from '../game/monsters'
+
+const monster = ref(sample(monsters))
 </script>
 
 <template>
@@ -13,9 +19,12 @@ import HudDialog from '../components/HudDialog.vue'
     </menu>
     
     <section class="battle">
-      <img class="monster" src="@/assets/img/monsters/001.png" />
+      <PokemonLoader  
+        :monster="monster" 
+        class="monster"
+      />
     </section>
-    <HudDialog />
+    <HudDialog :monster="monster"/>
   </main>
 </template>
 
