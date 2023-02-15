@@ -43,13 +43,13 @@ const messages = computed(() => {
       type: DIALOG
     },
     {
-      text: `30x tractions...`,
+      text: `30 tractions...`,
       duration: 999999,
       type: CHALLENGE,
       state: IDLE
     },
     {
-      text: `20x burpees...`,
+      text: `20 burpees...`,
       duration: 4600,
       type: CHALLENGE,
       state: IDLE
