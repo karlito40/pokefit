@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import AnimatedText from './AnimatedText.vue';
 import { createTimer } from '../libs/timer';
 
 const DIALOG = 'dialog'
@@ -15,18 +16,17 @@ const leaveMessage = {
 const messages = [
   {
     text: 'Un Tortank sauvage apparait!',
-    duration: 1000,
-    // duration: 99999999,
+    duration: 2000,
     type: DIALOG
   },
   {
     text: 'Tortank vous lance un défi...',
-    duration: 1000,
+    duration: 2500,
     type: DIALOG
   },
   {
     text: 'Tortank réclame...',
-    duration: 1000,
+    duration: 4000,
     type: DIALOG
   },
   {
@@ -75,7 +75,11 @@ function scrollMessages () {
 
 <template>
   <div class="HudDialog">
-    {{ currentMessage?.text }}
+    <AnimatedText 
+      v-if="currentMessage"
+      :key="currentMessage"
+      :text="currentMessage.text"
+    />
     <div 
       v-if="currentMessage?.type === CHALLENGE"
       class="challenge-actions"
@@ -112,7 +116,7 @@ function scrollMessages () {
   right: 1rem;
   bottom: -1rem;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 button {
@@ -120,6 +124,8 @@ button {
   border-radius: 12px;
   font-weight: 500;
   margin-left: 1rem;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .btn-next {
@@ -127,6 +133,7 @@ button {
   background: #34d399;
   box-shadow: 2px 3px #358a35;
   text-shadow: 0px 1px #a4fd00;
+  animation: 0.4s ease 2s forwards challenge-display;
 }
 
 .btn-leave {
@@ -134,6 +141,20 @@ button {
   background: #fbb1b1;
   box-shadow: -2px 3px #ec4949;
   text-shadow: 0px 1px #fff4f1;
+  animation: 0.4s ease 1.8s forwards challenge-display;
 }
 
+@keyframes challenge-display {
+  from {
+    visibility: visible;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
 </style>
