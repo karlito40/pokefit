@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { h } from "vue";
 import HomeView from "./views/HomeView.vue";
 import BattleView from "./views/BattleView.vue";
 import StatsView from "./views/StatsView.vue";
 import PokedexView from "./views/PokedexView.vue";
+import Modal from "./components/Modal.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,12 +17,12 @@ const router = createRouter({
         {
           path: "pokedex",
           name: "pokedex",
-          component: PokedexView,
+          component: ModalRoute(PokedexView),
         },
         {
           path: "stats",
           name: "stats",
-          component: StatsView,
+          component: ModalRoute(StatsView),
         },
       ],
     },
@@ -29,15 +31,25 @@ const router = createRouter({
       name: "battle",
       component: BattleView,
     },
-    // {
-    //   path: '/pokedex',
-    //   name: 'pokedex',
-    // components: {
-    //   default: HomeView,
-    //   modal: PokedexView,
-    // },
-    // },
   ],
 });
+
+function ModalRoute(Component) {
+  return {
+    components: {
+      Modal,
+    },
+
+    render() {
+      return h(
+        Modal,
+        {
+          onClose: () => router.go(-1),
+        },
+        h(Component)
+      );
+    },
+  };
+}
 
 export default router;

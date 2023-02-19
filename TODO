@@ -7,6 +7,7 @@
 ☐ random by weight
 
 ☐ improve modal view
+☐ new tailwind purge api
 
 <div>
         <button>Accepter</button> <!-- Tortank vous accorde 5 minutes -->
