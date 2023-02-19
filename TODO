@@ -6,6 +6,8 @@
 ☐ set background from type
 ☐ random by weight
 
+☐ improve modal view
+
 <div>
         <button>Accepter</button> <!-- Tortank vous accorde 5 minutes -->
         <button>/Fuir</button> <!-- Tortank vous juge. Le sourire aux levres -->
