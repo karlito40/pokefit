@@ -1,11 +1,27 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import { Capacitor } from "@capacitor/core";
+import { StatusBar, Style } from "@capacitor/status-bar";
+import App from "./App.vue";
+import router from "./router";
 
-import './assets/main.css'
+import "./assets/main.css";
 
-const app = createApp(App)
+setupMobile();
 
-app.use(router)
+const app = setupApp();
+app.mount("#app");
 
-app.mount('#app')
+function setupMobile() {
+  if (Capacitor.isPluginAvailable("StatusBar")) {
+    StatusBar.setOverlaysWebView({ overlay: true });
+    StatusBar.setStyle({ style: Style.Light });
+  }
+}
+
+function setupApp() {
+  const app = createApp(App);
+
+  app.use(router);
+
+  return app;
+}

@@ -13,6 +13,6 @@ import MainMenu from './components/MainMenu.vue';
 .MainMenu {
   position: absolute;
   width: 100%;
-  top: 0;
+  top: 2rem; /* StatusBar offset */
 }
 </style>

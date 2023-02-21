@@ -1,14 +1,19 @@
 <script setup>
 import { sample } from 'lodash-es'
+import Background from '../components/Background.vue';
 import HudDialog from '../components/HudDialog.vue'
 import PokemonLoader from '../components/PokemonLoader.vue'
-import monsters from '../game/monsters'
+import monsters, { findBackground } from '../game/monsters'
 
 const monster = sample(monsters)
+const backgroundTheme = findBackground(monster)
 </script>
 
 <template>
-  <div class="BattleView">
+  <Background
+    :theme="backgroundTheme"
+    class="BattleView"
+  >
     <section class="battle">
       <PokemonLoader  
         :monster="monster" 
@@ -16,17 +21,11 @@ const monster = sample(monsters)
       />
     </section>
     <HudDialog :monster="monster"/>
-  </div>
+  </Background>
 </template>
 
 
 <style scoped>
-.BattleView {
-  background: url('@/assets/img/backgrounds/forest-sun.png') no-repeat center center;
-  background-size: cover;
-  min-height: 100vh;
-}
-
 .battle {
   position: absolute;
   top: calc(50% - 2rem);

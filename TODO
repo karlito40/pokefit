@@ -3,8 +3,9 @@
 ☐ Animation (pokemon opponent, pokeball capture, fuite..)
 ☐ push notif
 ☐ add vue-i18n
-☐ set background from type
+✔ set background from type @done(23-02-21 11:43)
 ☐ random by weight
+☐ convert background to jpg
 
 ☐ improve modal view
 ☐ new tailwind purge api
