@@ -96,6 +96,7 @@ function scrollMessages () {
     />
     <div 
       v-if="currentMessage?.type === CHALLENGE"
+      :key="currentMessage"
       class="challenge-actions"
     >
       <button 
