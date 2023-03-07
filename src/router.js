@@ -44,7 +44,7 @@ function ModalRoute(Component) {
       return h(
         Modal,
         {
-          onClose: () => router.go(-1),
+          onClose: () => router.push({ name: "home" }),
         },
         h(Component)
       );
